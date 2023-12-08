@@ -1,29 +1,39 @@
-package com.example.dao;
+package com.example.board;
 
-
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
+
+import java.util.List;
 
 @Repository
 public class BoardDAO {
+
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    SqlSession sqlSession;
 
     public int insertBoard(BoardVO vo){
-        String sql = "insert into BOARD (title, writer, content, category) value(" + "'" + vo.getTitle() + "," + "'" +vo.getWriter() + "," + "'" + vo.getContent() + "," + "'" + vo.getCategory() + ")";
-        return jdbcTemplate.update(sql);
+        return sqlSession.insert("Board.insertBoard", vo);
     }
 
     public int deleteBoard(int seq){
-        String sql = "delete from BOARD where seq =" + seq;
-        return jdbcTemplate.update(sql);
+        return sqlSession.delete("Board.deleteBoard", seq);
     }
 
-    public updateBoard(Board vo){
-        String sql = "update BOARD set title='" + vo.getTitle() + "',"
-                + "title='" + vo.getTitle() + "',"
-                + "writer='"
+    public int updateBoard(BoardVO vo) {
+        return sqlSession.update("Board.updateBoard", vo);
     }
+    public BoardVO getBoard(int seq){
+        BoardVO one = sqlSession.selectOne("Board.getBoard", seq);
+        return one;
+    }
+
+    public List<BoardVO> getBoardList(){
+        List<BoardVO> list = sqlSession.selectList("Board.getBoardList");
+        return list;
+    }
+
+
 }

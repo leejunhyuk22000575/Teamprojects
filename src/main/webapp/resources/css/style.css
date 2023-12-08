@@ -1,0 +1,19 @@
+#boardlist {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+#boardlist td, #boardlist th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align:center;
+}
+#boardlist tr:nth-child(even){background-color: #f2f2f2;}
+#boardlist tr:hover {background-color: #ddd;}
+#boardlist th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #006bb3;
+    color: white;
+}

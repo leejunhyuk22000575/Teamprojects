@@ -1,29 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@page import="com.example.board.BoardDAO, com.example.board.BoardVO"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: dlwns
+  Date: 2023-12-01
+  Time: 오후 9:21
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Edit Form</title>
+  <title>Edit</title>
 </head>
 <body>
-<%
-  BoardDAO boardDAO = new BoardDAO();
-  String id=request.getParameter("id");
-  BoardVO u=boardDAO.getBoard(Integer.parseInt(id));
-%>
-<h1>Edit Form</h1>
-<form:form commandName="boardVO" method="post" action="../editok">
-  <form:hidden path="seq" />
+
+<h1>Edit</h1>
+<form:form modelAttribute="u" method="post" action="../editok">
+  <form:hidden path="seq"/>
   <table id="edit">
-    <tr><td>Category:</td><td><form:input path="category" /></td></tr>
-    <tr><td>Title:</td><td><form:input path="title" /></td></tr>
-    <tr><td>Writer:</td><td><form:input path="writer" /></td></tr>
-    <tr><td>Content:</td><td><form:textarea cols="50" rows="5" path="content" /></td></tr>
+    <tr><td>category </td><td><form:input path="category"/></td></tr>
+    <tr><td>title </td><td><form:input path="title"/></td></tr>
+    <tr><td>writer </td><td><form:input path="writer"/></td></tr>
+    <tr><td>content </td><td><form:textarea path="content" cols="50" rows="5"/></td></tr>
+    <tr><td><input type="submit" value="수정"/><input type="button" value="취소" onclick="history.back()"/></td></tr>
   </table>
-  <input type="submit" value="수정하기" />
-  <input type="button" value="취소하기" onclick="history.back()" />
 </form:form>
 
 </body>
