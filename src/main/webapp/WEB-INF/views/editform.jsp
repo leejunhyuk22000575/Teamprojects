@@ -19,10 +19,14 @@
 <form:form modelAttribute="u" method="post" action="../editok">
   <form:hidden path="seq"/>
   <table id="edit">
-    <tr><td>category </td><td><form:input path="category"/></td></tr>
     <tr><td>title </td><td><form:input path="title"/></td></tr>
-    <tr><td>writer </td><td><form:input path="writer"/></td></tr>
-    <tr><td>content </td><td><form:textarea path="content" cols="50" rows="5"/></td></tr>
+    <tr><td>pay </td><td><form:input path="pay"/></td></tr>
+    <tr><td>numEmployee </td><td><form:input path="numEmployee"/></td></tr>
+    <tr><td>workPeriod </td><td><form:input path="workPeriod"/></td></tr>
+    <tr><td>gender </td><td><form:input path="gender"/></td></tr>
+    <tr><td>dayOfWeek </td><td><form:input path="dayOfWeek"/></td></tr>
+    <tr><td>location </td><td><form:input path="location"/></td></tr>
+    <tr><td>jobType </td><td><form:input path="jobType"/></td></tr>
     <tr><td><input type="submit" value="수정"/><input type="button" value="취소" onclick="history.back()"/></td></tr>
   </table>
 </form:form>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value="/login")
-public class LoginController {
+public class  LoginController {
 
     @Autowired
     UserServiceImpl service;
